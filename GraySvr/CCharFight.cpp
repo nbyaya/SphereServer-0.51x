@@ -482,7 +482,7 @@ bool CChar::Memory_UpdateClearTypes( CItemMemory * pMemory, WORD MemTypes )
 			ClearStat( STATF_Pet );
 	}
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	// Must be deleted.
 	if ( ! fMore && MemTypes && g_Log.IsLogged( LOGL_TRACE ))
 	{
@@ -522,7 +522,7 @@ CItemMemory * CChar::Memory_CreateObj( CObjUID uid, WORD MemTypes )
 	// NOTE: Does not check if object already has a memory.
 	//  Assume it does not !
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	DEBUG_CHECK( Memory_FindObj( uid ) == NULL );
 #endif
 
@@ -676,7 +676,7 @@ bool CChar::Fight_OnTick( CItemMemory * pMemory )
 	if ( pTarg == NULL ) 
 		return( false );	// They are gone for some reason ?
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( g_Log.IsLogged( LOGL_TRACE ))
 	{
 		DEBUG_MSG(( "OnTick '%s' Memory of Fighting '%s'\n", GetName(), pTarg->GetName()));
@@ -755,7 +755,7 @@ void CChar::Fight_Start( const CChar * pTarg )
 			return;
 	}
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( g_Log.IsLogged( LOGL_TRACE ))
 	{
 		DEBUG_MSG(( "Fight_Start '%s' attacks '%s', type 0%x\n", GetName(), pTarg->GetName(), MemTypes ));

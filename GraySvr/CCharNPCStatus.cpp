@@ -601,7 +601,7 @@ int CChar::NPC_GetAttackMotivation( CChar * pChar, int iMotivation ) const
 		iMotivation = NPC_GetAttackContinueMotivation( pChar, iMotivation );
 	}
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( g_Serv.m_wDebugFlags & DEBUGF_MOTIVATION )
 	{
 		DEBUG_MSG(( "NPC_GetAttackMotivation '%s' for '%s' is %d\n", GetName(), pChar->GetName(), iMotivation ));

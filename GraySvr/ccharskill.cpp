@@ -205,7 +205,7 @@ void CChar::Skill_Experience( SKILL_TYPE skill, int difficulty )
 			return; // less than no chance ?
 		int iRoll = GetRandVal(1000);
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 		if ( IsPriv( PRIV_DETAIL ) &&
 			GetPrivLevel() >= PLEVEL_GM &&
 			( g_Serv.m_wDebugFlags & DEBUGF_ADVANCE_STATS ))
@@ -265,7 +265,7 @@ void CChar::Skill_Experience( SKILL_TYPE skill, int difficulty )
 
 		int iRoll = GetRandVal(1000);
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 		if ( IsPriv( PRIV_DETAIL ) &&
 			GetPrivLevel() >= PLEVEL_GM &&
 			( g_Serv.m_wDebugFlags & DEBUGF_ADVANCE_STATS ))
@@ -301,7 +301,7 @@ void CChar::Skill_Experience( SKILL_TYPE skill, int difficulty )
 		int iChanceForLoss = GW_GetSCurve( g_Serv.m_iMaxSumOfStats - iSumOfStats, ( g_Serv.m_iMaxSumOfStats - g_Serv.m_iAvgSumOfStats ) >> 2 );
 		int iRoll = GetRandVal(1000);
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 		if ( IsPriv( PRIV_DETAIL ) &&
 			GetPrivLevel() >= PLEVEL_GM &&
 			( g_Serv.m_wDebugFlags & DEBUGF_ADVANCE_STATS ))
@@ -353,7 +353,7 @@ bool CChar::Skill_CheckSuccess( SKILL_TYPE skill, int difficulty )
 	int iChanceForSuccess = GW_GetSCurve( iSkillVal - ( difficulty * 10 ), SKILL_VARIANCE );
 	int iRoll = GetRandVal(1000);
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	// Print out the skillvalues for now for debugging purposes
 	if ( IsPriv( PRIV_DETAIL ) &&
 		GetPrivLevel() >= PLEVEL_GM &&

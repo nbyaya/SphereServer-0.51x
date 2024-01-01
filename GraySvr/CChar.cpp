@@ -4556,13 +4556,11 @@ bool CChar::CheckLocation( bool fStanding )
 	// what will happen ?
 	// RETURN: true = we teleported.
 
-
-	//we disabled this to avoid that at any step the monster shoots an arrow
 	if (!fStanding)
 	{
 		// If we moved and are wielding are in combat and are using a
 		// crossbow/bow kind of weapon, then reset the weaponswingtimer.
-		if ( GetActiveSkill() == SKILL_ARCHERY )
+		if ( GetActiveSkill() == SKILL_ARCHERY && m_pPlayer)
 		{
 			SetWeaponSwingTimer();
 		}
@@ -4684,7 +4682,7 @@ bool CChar::MoveToRegion( CRegionWorld * pNewArea, bool fAllowReject )
 	// RETURN:
 	//  false = do not allow in this area.
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( pNewArea )
 	{
 		DEBUG_CHECK( pNewArea->IsValid());

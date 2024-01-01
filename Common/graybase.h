@@ -10,7 +10,7 @@
 #pragma once
 #endif // _MSC_VER >= 1000
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 #ifdef GRAY_SVR
 #ifndef ASSERT
 extern void Assert_CheckFail( const char * pExp, const char *pFile, unsigned uLine );

@@ -136,7 +136,7 @@ typedef unsigned int	ERROR_CODE;	// ERROR_SUCCESS
 #define _ISSET(w,b) 	((w)&_BITMASK(b))
 #define _ISCLR(w,b) 	(!_ISSET(w,b))
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 #define _LOCCALL        // Give local calls better calling conventions
 #else
 #define _LOCCALL        // __fastcall // Local procedure name modifier.
@@ -208,7 +208,7 @@ public:
 		return( VEvent( LOGL_ERROR, pszFormat, args ));
 	}
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 #define DEBUG_WARN(_x_)		g_pLog->EventWarn _x_
 #define DEBUG_MSG(_x_)		g_pLog->EventEvent _x_	
 #define DEBUG_TRACE(_x_)	g_pLog->EventTrace _x_	

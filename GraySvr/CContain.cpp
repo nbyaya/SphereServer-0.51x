@@ -613,7 +613,7 @@ insertit:
 	CContainer::ContentAddPrivate( pItem );
 	pItem->SetContainedPoint( pt );
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( ! g_Serv.IsLoading())
 	{
 		ASSERT( pItem->GetID() != ITEMID_MEMORY );

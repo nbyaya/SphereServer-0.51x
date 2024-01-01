@@ -59,7 +59,7 @@ int GW_GetBellCurve( int iValDiff, int iVariance )
 		return( 500 );
 	if ( iValDiff < 0 ) iValDiff = -iValDiff;
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	int iCount = 32;
 #endif
 
@@ -68,7 +68,7 @@ int GW_GetBellCurve( int iValDiff, int iVariance )
 	{
 		iValDiff -= iVariance;
 		iChance /= 2;	// chance is halved for each Variance period.
-#ifdef _DEBUG
+#ifdef NDEBUG
 		iCount--;
 		ASSERT( iCount );
 #endif

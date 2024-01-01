@@ -555,7 +555,7 @@ public:
 	bool CheckAntiMagic( SPELL_TYPE spell ) const;
 	virtual bool IsValid() const
 	{
-#ifdef _DEBUG
+#ifdef NDEBUG
 		if ( ! IsValidDynamic())
 			return( false );
 #endif
@@ -732,7 +732,7 @@ public:
 
 	virtual int IsWeird() const
 	{
-#ifdef _DEBUG
+#ifdef NDEBUG
 		if ( ! IsValidDynamic())
 		{
 			return( 0x3101 );
@@ -742,7 +742,7 @@ public:
 		{
 			return( 0x3102 );
 		}
-#if defined(_DEBUG) && defined(GRAY_SVR)
+#if defined(NDEBUG) && defined(GRAY_SVR)
 		if ( ! IsValidContainer())
 		{
 			return( 0x3103 );

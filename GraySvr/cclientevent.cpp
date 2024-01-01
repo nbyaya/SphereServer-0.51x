@@ -547,7 +547,7 @@ void CClient::Event_Item_Equip() // Item is dropped on paperdoll
 		goto cantequip;
 	}
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( g_Log.IsLogged( LOGL_TRACE ))
 	{
 		DEBUG_MSG(( "%x:Item 0%x equipped on layer %i.\n", GetSocket(), pItem->GetID(), layer ));

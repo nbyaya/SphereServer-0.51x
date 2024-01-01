@@ -174,7 +174,7 @@ int FindTableSorted( const TCHAR * pFind, const TCHAR * const * ppTable, int iCo
 	// Do a binary search (un-cased) on a sorted table.
 
 //#ifdef COMMENT
-#ifdef _DEBUG
+#ifdef NDEBUG
 	// make sure the table acually IS sorted !
 	for ( int i=0; i<iCount-1; i++ )
 	{

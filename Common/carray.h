@@ -12,7 +12,7 @@ class CMemDynamic
 	// This item will always be dynamically allocated with new/delete!
 	// Never stack or data seg based. 
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 
 #define DECLARE_MEM_DYNAMIC virtual const void * GetTopPtr() const { return this; }	// Get the top level ptr.
 #define COBJBASE_SIGNATURE	0xDEADBEEF	// used just to make sure this is valid.

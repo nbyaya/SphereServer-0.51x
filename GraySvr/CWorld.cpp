@@ -830,7 +830,7 @@ int CWorld::FixObj( CObjBase * pObj, int iUID )
 	if ( ! iResultCode ) 
 		return( 0 );
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	CItem * pItem = dynamic_cast <CItem*>(pObj);
 	CChar * pChar = dynamic_cast <CChar*>(pObj);
 #endif

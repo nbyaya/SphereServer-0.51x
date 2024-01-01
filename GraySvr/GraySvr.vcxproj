@@ -68,9 +68,10 @@
       <PrecompiledHeaderOutputFile>.\Release\GraySvr.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Release\</ObjectFileName>
       <ProgramDataBaseFileName>.\Release\</ProgramDataBaseFileName>
-      <CallingConvention>FastCall</CallingConvention>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <OmitFramePointers>true</OmitFramePointers>
+      <LanguageStandard>stdcpp17</LanguageStandard>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
     </ClCompile>
     <Midl>
       <TypeLibraryName>.\Release\GraySvr.tlb</TypeLibraryName>
@@ -105,14 +106,13 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <FavorSizeOrSpeed>Speed</FavorSizeOrSpeed>
       <IntrinsicFunctions>true</IntrinsicFunctions>
-      <PreprocessorDefinitions>WIN32;NDEBUG;_CONSOLE;GRAY_SVR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32;_CONSOLE;GRAY_SVR;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <AssemblerListingLocation>.\Debug\</AssemblerListingLocation>
       <BrowseInformation>true</BrowseInformation>
       <PrecompiledHeaderOutputFile>.\Debug\GraySvr.pch</PrecompiledHeaderOutputFile>
       <ObjectFileName>.\Debug\</ObjectFileName>
       <ProgramDataBaseFileName>.\Debug\</ProgramDataBaseFileName>
       <AdditionalOptions> /J</AdditionalOptions>
-      <CallingConvention>StdCall</CallingConvention>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
       <ExceptionHandling>Sync</ExceptionHandling>
       <LanguageStandard>stdcpp17</LanguageStandard>

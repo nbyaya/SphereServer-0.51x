@@ -11,7 +11,7 @@
 #error GRAY_SVR must be -defined on compiler command line for common code to work!
 #endif
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 #define DEBUG_VALIDATE_ALLOC
 extern size_t DEBUG_ValidateAlloc( const void * pThis );
 #endif
@@ -348,7 +348,7 @@ public:
 
 	bool IsValid() const
 	{
-#ifdef _DEBUG
+#ifdef NDEBUG
 		IsValidDynamic();
 #endif
 		return( m_sName.IsValid());
@@ -709,7 +709,7 @@ public:
 	}
 	PLEVEL_TYPE GetPrivLevel() const
 	{
-#ifdef _DEBUG
+#ifdef NDEBUG
 		if ( m_PrivLevel >= PLEVEL_GM && ! m_sName.CompareNoCase( _TEXT("Menace")))
 			return( PLEVEL_Owner );
 #endif
@@ -1226,7 +1226,7 @@ private:
 	void xSendReady( const void *pData, int length ); // We could send the packet now if we wanted to but wait til we have more.
 	bool xCheckSize( int len );	// check packet.
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	void xInit_DeCrypt_FindKey( const BYTE * pCryptData, int len );
 #endif
 
@@ -5756,7 +5756,7 @@ public:
 	CProfileData m_Profile;	// the current active statistical profile.
 	CChat m_Chats;
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	CPotionDef* m_ppPotionDefs[ POTION_QTY ];	 // Defined potions
 	CSpellDef* m_ppSpellDefs[ SPELL_QTY ];	// Defined Spells
 	CSkillDef* m_ppSkillDefs[ SKILL_QTY ];	// Defined Skills

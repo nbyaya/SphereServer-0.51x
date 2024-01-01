@@ -53,7 +53,7 @@ private:
     	m_iLength = 0;
 	}    
 protected:
-#ifdef _DEBUG
+#ifdef NDEBUG
     operator const CGString() const
     {
 		return( *this );

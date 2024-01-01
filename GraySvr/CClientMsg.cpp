@@ -1184,7 +1184,7 @@ void CClient::addCharName( const CChar * pChar ) // Singleclick text for a chara
 		strcat( szTemp, " [criminal]" );
 	}
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	if ( IsPriv(PRIV_GM) && ( g_Serv.m_wDebugFlags & DEBUGF_NPC_EMOTE ))
 	{
 		strcat( szTemp, " [" );
@@ -3022,7 +3022,7 @@ void CClient::Setup_Start( CChar * pChar ) // Send character startup stuff to pl
 
 	g_Log.Event( LOGM_CLIENTS_LOG, "%x:Setup_Start acct='%s', char='%s'\n", GetSocket(), m_pAccount->GetName(), pChar->GetName());
 
-#ifndef _DEBUG
+#ifndef NDEBUG
 	srand( getclock()); // Perform randomize
 #endif
 

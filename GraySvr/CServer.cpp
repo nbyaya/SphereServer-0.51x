@@ -1274,14 +1274,6 @@ do_saving:
 		}
 		break;
 
-#ifdef _DEBUG
-	case '^':	// hang forever.
-		while (true)
-		{
-		}
-		break;
-#endif
-
 	default:
 		pSrc->SysMessagef( "unknown command '%c'\n", sText[0] );
 		break;
@@ -3181,7 +3173,7 @@ do_events:
 				// DEBUG_CHECK( i < CChar::IsSkillBase( iskill ));
 				CPotionDef * pPotion = new CPotionDef(s);
 				m_PotionDefs.SetAtGrow(i,pPotion);
-#ifdef _DEBUG
+#ifdef NDEBUG
 				m_ppPotionDefs[i] = pPotion;
 #endif
 			}
@@ -3198,7 +3190,7 @@ do_events:
 			{
 				SKILL_TYPE iskill = (SKILL_TYPE) s.GetArgVal();
 				CSkillDef * pSkill = new CSkillDef( iskill, s );
-#ifdef _DEBUG
+#ifdef NDEBUG
 				m_ppSkillDefs[iskill] = pSkill;
 #endif
 			}
@@ -3227,7 +3219,7 @@ do_events:
 				SPELL_TYPE i = (SPELL_TYPE) s.GetArgVal();
 				CSpellDef * pSpell = new CSpellDef( s );
 				m_SpellDefs.SetAtGrow(i,pSpell);
-#ifdef _DEBUG
+#ifdef NDEBUG
 				m_ppSpellDefs[i] = pSpell;
 #endif
 			}
@@ -3496,7 +3488,7 @@ bool CServer::Load()
 	}
 #endif
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 	srand( 0 ); // regular randomizer.
 #else
 	srand( getclock()); // Perform randomize

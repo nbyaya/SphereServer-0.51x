@@ -120,7 +120,7 @@ extern void globalstartsymbol();
 //
 
 #define MEMORY_ALLOC_SIGNATURE	0xBADF00D
-#ifdef _DEBUG
+#ifdef NDEBUG
 size_t DEBUG_ValidateAlloc( const void * pThis )
 {
 	// make sure the dynamic allocation below is valid.
@@ -206,7 +206,7 @@ void _cdecl operator delete[]( void * pThis )
 	free( pThis );
 }
 
-#ifdef _DEBUG
+#ifdef NDEBUG
 void Debug_CheckFail( const TCHAR * pExp, const TCHAR *pFile, unsigned uLine )
 {
 	g_Log.Event( LOGL_ERROR, "Check Fail:'%s' file '%s', line %d\n", pExp, pFile, uLine );
@@ -802,7 +802,7 @@ void MainMonitorLoop()
 				// Kill and revive the main process
 				g_Log.Event( LOGL_CRIT, "Main loop freeze RESTART!\n" );
 
-#ifndef _DEBUG
+#ifdef _TERMINATE
 				g_Main.TerminateThread( 0xDEAD );
 
 				// try to restart it.

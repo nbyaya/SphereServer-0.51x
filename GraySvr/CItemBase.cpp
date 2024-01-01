@@ -1409,7 +1409,7 @@ bool CItemBase::r_LoadVal( CScript &s )
 		break;
 	case IC_DUPELIST:
 		{
-#ifdef _DEBUG
+#ifdef NDEBUG
 			if ( g_Serv.m_iExitCode == 5 )	// special mode. ignore this
 				break;
 #endif
