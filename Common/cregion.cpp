@@ -330,7 +330,8 @@ CSector * CPointBase::GetSector() const
 	// Get the world Sector we are in.
 	ASSERT(	m_x >= 0 && m_x < UO_SIZE_X );
 	ASSERT(	m_y >= 0 && m_y < UO_SIZE_Y );
-	return( & ( g_World.m_Sectors[ (( m_y / SECTOR_SIZE_Y ) * SECTOR_COLS ) + ( m_x / SECTOR_SIZE_X ) ] ));
+	//even if this is just wrong, values should be checked and validated, to avoid overflows on the array!
+	return( & ( g_World.m_Sectors[ (( max(0, min(MAP_SIZE_Y, m_y)) / SECTOR_SIZE_Y ) * SECTOR_COLS ) + ( max(0, min(MAP_SIZE_X, m_x)) / SECTOR_SIZE_X ) ] ));
 }
 
 CRegionBase * CPointBase::GetRegion( UINT dwType ) const

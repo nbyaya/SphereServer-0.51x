@@ -75,9 +75,9 @@ public:
 	void Validate()
 	{
 		if ( m_x < 0 ) m_x = 0;
-		if ( m_x >= UO_SIZE_X ) m_x = UO_SIZE_X-1;
+		if ( m_x >= UO_SIZE_X ) m_x = MAP_SIZE_X;
 		if ( m_y < 0 ) m_y = 0;
-		if ( m_y >= UO_SIZE_Y ) m_y = UO_SIZE_Y-1;
+		if ( m_y >= UO_SIZE_Y ) m_y = MAP_SIZE_Y;
 	}
 
 	bool IsSame2D( const CPointBase & pt ) const
