@@ -308,11 +308,6 @@ const TCHAR * CCharNPC::sm_KeyTable[] =
 	"DESIRES",
 	"HOMEDIST",
 	"KNOWLEDGE",
-	"MAXHITPOINTS",
-	"MAXHITS",
-	"MAXMANA",
-	"MAXSTAM",
-	"MAXSTAMINA",
 	"MOTIVES",
 	"NEED",
 	"NPC",
@@ -341,26 +336,14 @@ scp_desires:
 scp_speech:
 		// ??? Check that it is not already part of m_pDef->m_Speech
 		return( m_Speech.r_LoadVal( s ));
-	case 5: // "MAXHITPOINTS"
-	case 6: // "MAXHITS"
-		m_StatMaxValue[STAT_STR] = s.GetArgVal();
-		break;
-	case 7: // "MAXMANA"
-		m_StatMaxValue[STAT_INT] = s.GetArgVal();
-		break;
-	case 8: // "MAXSTAM"
-	case 9: // "MAXSTAMINA"
-		m_StatMaxValue[STAT_DEX] = s.GetArgVal();
-		break;
-	
-	case 10: // "MOTIVES"
+	case 5: // "MOTIVES"
 		goto scp_desires;
-	case 11: // "NEED"
+	case 6: // "NEED"
 		m_sNeed = s.GetArgStr();
 		break;
-	case 12:// "NPC",
+	case 7:// "NPC",
 		goto scp_brain;
-	case 13:// "SPEECH",
+	case 8:// "SPEECH",
 		goto scp_speech;
 	default:
 		return(false );
@@ -399,25 +382,14 @@ scp_desires:
 scp_speech:
 		m_Speech.WriteFragList( sVal );
 		break;
-	case 5: // "MAXHITPOINTS"
-	case 6: // "MAXHITS"
-		sVal.FormatVal(m_pNPCChar->HitManaStam_Get(STAT_STR));
-		break;
-	case 7: // "MAXMANA"
-		sVal.FormatVal(m_pNPCChar->HitManaStam_Get(STAT_INT));
-		break;
-	case 8: // "MAXSTAM"
-	case 9: // "MAXSTAMINA"
-		sVal.FormatVal(m_pNPCChar->HitManaStam_Get(STAT_DEX));
-		break;
-	case 10: // "MOTIVES"
+	case 5: // "MOTIVES"
 		goto scp_desires;
-	case 11: // "NEED"
+	case 6: // "NEED"
 		sVal = m_sNeed;
 		break;
-	case 12:// "NPC",
+	case 7:// "NPC",
 		goto scp_brain;
-	case 13:// "SPEECH",
+	case 8:// "SPEECH",
 		goto scp_speech;
 	default:
 		return( false );

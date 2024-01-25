@@ -1256,6 +1256,11 @@ enum
 	CC_HITS,
 	CC_HOME,
 	CC_MANA,
+	CC_MAXHITPOINTS,
+	CC_MAXHITS,
+	CC_MAXMANA,
+	CC_MAXSTAM,
+	CC_MAXSTAMINA,
 	CC_NPC,
 	CC_OBODY,
 	CC_OSKIN,
@@ -1288,6 +1293,11 @@ const TCHAR * CChar::sm_KeyTable[CC_QTY] =
 	"HITS",
 	"HOME",
 	"MANA",
+	"MAXHITPOINTS",
+	"MAXHITS",
+	"MAXMANA",
+	"MAXSTAM",
+	"MAXSTAMINA",
 	"NPC",
 	"OBODY",
 	"OSKIN",
@@ -1547,6 +1557,17 @@ bool CChar::r_WriteVal( const TCHAR * pKey, CGString & sVal, CTextConsole * pSrc
 	case CC_MANA:
 		sVal.FormatVal( m_StatMana );
 		break;
+	case CC_MAXHITPOINTS: // "MAXHITPOINTS"
+	case CC_MAXHITS: // "MAXHITS"
+		sVal.FormatVal(HitManaStam_Get(STAT_STR));
+		break;
+	case CC_MAXMANA: // "MAXMANA"
+		sVal.FormatVal(HitManaStam_Get(STAT_INT));
+		break;
+	case CC_MAXSTAM: // "MAXSTAM"
+	case CC_MAXSTAMINA: // "MAXSTAMINA"
+		sVal.FormatVal(HitManaStam_Get(STAT_DEX));
+		break;
 	case CC_XBODY: // not used anymore.
 	case CC_OBODY:
 		sVal.FormatHex( m_prev_id);
@@ -1672,6 +1693,21 @@ bool CChar::r_LoadVal( CScript & s )
 		m_StatMana = s.GetArgRange();
 		UpdateStatsFlag();
 		return true;
+	case CC_MAXHITPOINTS: // "MAXHITPOINTS"
+	case CC_MAXHITS: // "MAXHITS"
+		if(m_pNPC)
+			m_pNPC->m_StatMaxValue[STAT_STR] = s.GetArgVal();
+		break;
+	case CC_MAXMANA: // "MAXMANA"
+		if (m_pNPC)
+			m_pNPC->m_StatMaxValue[STAT_INT] = s.GetArgVal();
+		break;
+	case CC_MAXSTAM: // "MAXSTAM"
+	case CC_MAXSTAMINA: // "MAXSTAMINA"
+		if (m_pNPC)
+			m_pNPC->m_StatMaxValue[STAT_DEX] = s.GetArgVal();
+		break;
+
 	case CC_NPC:
 		SetNPCBrain( (NPCBRAIN_TYPE) s.GetArgVal());
 		return true;
