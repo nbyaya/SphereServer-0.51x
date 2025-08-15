@@ -2044,7 +2044,7 @@ void CClient::Event_SetName( CObjUID uid )
 	if ( g_Serv.IsObscene( m_bin.CharName.m_name ))
 		return;
 
-	if (ChkStr((char*)&pChar[0], "\n\r[]@\\^£$%&=#§*<>|1234567890,.-;:_/\"!?()°+ηςΰωθιμ"))
+	if (ChkStr((char*)&pChar[0], "\n\r[]@\\^~$%&=#*<>|1234567890,.-;:_/\"!?(){}"))
 		return;
 
 	//name must not contain any unwanted spaces

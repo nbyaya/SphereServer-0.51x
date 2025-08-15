@@ -1,0 +1,60 @@
+# 排除BIN、MD和Scripts目录
+Bin/
+MD/
+Scripts/
+
+# Visual Studio 构建文件
+*.obj
+*.exe
+*.dll
+*.pdb
+*.ilk
+*.bsc
+*.sbr
+*.tlog/
+*.idb
+*.pch
+*.suo
+*.user
+*.aps
+*.ncb
+*.opt
+*.plg
+*.map
+*.exp
+*.lib
+*.a
+*.o
+*.so
+*.dylib
+
+# 构建输出目录
+Debug/
+Release/
+x64/
+x86/
+Win32/
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+*.bak
+*.swp
+*~
+
+# 系统文件
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE文件
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# 其他
+*.ini
+*.cfg
+*.conf

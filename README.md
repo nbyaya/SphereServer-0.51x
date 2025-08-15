@@ -134,6 +134,20 @@ https://web.archive.org/web/20000819050744/http://www.sphereserver.com/
 
 https://web.archive.org/web/20000621160908/http://sphereserver.dslwatch.com/
 
+## 📚 相关文档
+
+项目相关的详细说明文档已移至 `MD/` 目录：
+
+- **[MD/README.md](MD/README.md)** - 文档索引和快速导航
+- **[MD/sphere.ini.README.md](MD/sphere.ini.README.md)** - 配置文件详细说明
+- **[MD/README_Config_Analysis.md](MD/README_Config_Analysis.md)** - 配置项分析报告
+
+## 🚀 快速开始
+
+1. **编译项目**: 使用 Visual Studio 2022 编译 `GraySvr.sln`
+2. **配置服务器**: 编辑 `sphere.ini` 配置文件
+3. **启动服务器**: 运行 `Bin/Release/GraySvr.exe` 或 `Bin/Debug/GraySvr.exe`
+
 <P><BR><P><BR>
 
 

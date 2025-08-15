@@ -255,7 +255,7 @@ public:
 	}
 };
 
-void _cdecl Exception_Win32( unsigned int id, struct _EXCEPTION_POINTERS* pData )
+void _cdecl Exception_Win32( unsigned int id, struct _EXCEPTION_POINTERS* pData ) noexcept(false)
 {
 	// id = 0xc0000094 for divide by zero.
 	// STATUS_ACCESS_VIOLATION is 0xC0000005.
